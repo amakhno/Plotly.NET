@@ -59,7 +59,7 @@ type Chart =
         
         let trace = Trace2D.initScatter(id)
         trace.Remove("type") |> ignore
-        GenericChart.ofTraceObject trace
+        GenericChart.ofTraceObject false trace
         |> GenericChart.mapLayout ( fun l ->
             l
             |> Layout.AddLinearAxis(StyleParam.SubPlotId.XAxis 1,hiddenAxis())
@@ -854,7 +854,7 @@ type Chart =
                 )
             let updatedLayout = layout |> Layout.SetLayoutGrid updatedGrid
             GenericChart.setLayout updatedLayout ch) 
-
+            
     [<CompiledName("WithConfig")>]
     static member withConfig (config:Config) =
         (fun (ch:GenericChart) ->
@@ -976,10 +976,9 @@ type Chart =
     static member withTemplate(template: Template) =
         (fun (ch:GenericChart) ->
             ch
-            |> GenericChart.mapLayout (fun l ->
-                template |> DynObj.setValue l "template"
-                l
-                )
+            |> GenericChart.mapLayout (
+                Layout.style(Template = (template :> DynamicObj))
+            )
         )
 
     // TODO: Include withLegend & withLegendStyle
@@ -1712,3 +1711,20 @@ type Chart =
         ) =
 
             Chart.withLayoutImages([image], ?Append = Append)
+
+    [<CompiledName("WithSliders")>]
+    static member withSliders
+        (
+            sliders:seq<Slider>
+        ) =
+            fun (ch:GenericChart) ->
+                ch
+                |> GenericChart.mapLayout
+                    (Layout.style (Sliders = sliders))
+
+    [<CompiledName("WithSlider")>]
+    static member withSlider
+        (
+            slider:Slider
+        ) =
+            Chart.withSliders([slider])

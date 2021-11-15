@@ -24,6 +24,7 @@
  * [Greatly improve C# interop](https://github.com/plotly/Plotly.NET/commit/c1ed1be0234a4fcfab921acb43f1c0cf128cc233)
  * [Add the Plotly.NET.ImageExport project](https://github.com/plotly/Plotly.NET/pull/94) - Render Plotly.NET charts as static images
  * [Use a statically typed color representation that is compatible with all ways plotly uses colors](https://github.com/plotly/Plotly.NET/commit/19763db129b9160906964d9831ff3f67279926cc) - thanks [@muehlhaus](https://github.com/muehlhaus)
+ * [Add a Templating and global default system](https://github.com/plotly/Plotly.NET/pull/237)
 
 **Plotly.NET now has 100% trace coverage! New Charts:**
 
@@ -87,6 +88,9 @@
  * [Improve Trace type system](https://github.com/plotly/Plotly.NET/commit/096f4bf7382441b153687835c3d51c9e2e3497ec)
  * [Fix incorrect scale used in image export](https://github.com/plotly/Plotly.NET/commit/893cf02a5700ce562c6d67470883123a2d84c3c1) - thanks [@pirrmann](https://github.com/pirrmann)]
  * [Improve Chart.Grid](https://github.com/plotly/Plotly.NET/pull/212)
+ * [Improve Distribution Charts](https://github.com/plotly/Plotly.NET/pull/220)
+ * [fix data property of chart templates](https://github.com/plotly/Plotly.NET/pull/233)
+ * [fix rangeslider props](https://github.com/plotly/Plotly.NET/commit/c1789c2197ee19524e543e022070a7c60adb9e06)
 
 **Other notable changes**
 
